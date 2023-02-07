@@ -29,11 +29,10 @@ public class Game {
     public Game() {
     }
 
-    public Game(String status, String factoryId, String uuId, Set<User> players) {
+    public Game(String status, String factoryId, String uuId) {
         this.status = status;
         this.factoryId = factoryId;
         this.uuId = uuId;
-        this.players = players;
     }
 
     public int getId() {
@@ -74,5 +73,9 @@ public class Game {
 
     public void setPlayers(Set<User> players) {
         this.players = players;
+    }
+    public void addPlayer(User user){
+        this.players.add(user);
+        user.getGames().add(this);
     }
 }

@@ -22,6 +22,14 @@ public class User {
     @Basic
     @Column(name = "lastName",nullable = false,length = 255)
     private String lastName;
+
+    @Basic
+    @Column(name = "nbWins", nullable = true)
+    private Integer nbWins;
+
+    @Basic
+    @Column(name = "nbLoses",nullable = true)
+    private Integer nbLoses;
     @JsonManagedReference
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_game",joinColumns = {@JoinColumn(name = "user_id")},inverseJoinColumns = {@JoinColumn(name = "game_id")})
@@ -34,6 +42,7 @@ public class User {
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
+
     }
 
     public int getId() {
@@ -42,6 +51,22 @@ public class User {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public Integer getNbWins() {
+        return nbWins;
+    }
+
+    public void setNbWins(Integer nbWins) {
+        this.nbWins = nbWins;
+    }
+
+    public Integer getNbLoses() {
+        return nbLoses;
+    }
+
+    public void setNbLoses(Integer nbLoses) {
+        this.nbLoses = nbLoses;
     }
 
     public String getEmail() {
